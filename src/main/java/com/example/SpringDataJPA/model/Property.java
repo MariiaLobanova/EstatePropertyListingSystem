@@ -1,6 +1,7 @@
 package com.example.SpringDataJPA.model;
 
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.Date;
 @Entity
@@ -10,9 +11,12 @@ public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String address;
     private String type;
+    @NotNull
     private double price;
+    @NotNull
     private double area;
     private int bedrooms;
     private int bathrooms;

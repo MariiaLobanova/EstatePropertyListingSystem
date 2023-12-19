@@ -41,6 +41,9 @@ public class PropertyService {
         property.setPrice(price);
         return propertyRepository.save(property);
     }
+    public List<Property> listPropertyByRieltor (Long realtorId){
+        return propertyRepository.findByRealtorId(realtorId);
+    }
 
 
 }

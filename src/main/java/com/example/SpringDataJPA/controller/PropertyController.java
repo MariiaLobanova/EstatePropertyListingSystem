@@ -38,6 +38,10 @@ public class PropertyController {
     public Property updatePropertyById(@PathVariable Long id, @RequestParam double price){
         return propertyService.updateProperty(id,price);
     }
+    @GetMapping("/property_by_realtor/{realtorId}")
+    public List<Property> listPropertyRealtors(@PathVariable Long realtorId){
+        return propertyService.listPropertyByRieltor(realtorId);
+    }
 
 
 
