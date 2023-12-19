@@ -1,9 +1,9 @@
 package com.example.SpringDataJPA.model;
-
 import jakarta.persistence.*;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+import java.util.Set;
 
 // as id, name, email, and phone.
 @Entity
@@ -16,7 +16,7 @@ public class Realtor {
     private String name;
     private String email;
     private String phone;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "realtor")
+    @OneToMany(mappedBy = "realtor", cascade = CascadeType.ALL)
     private List<Property> properties;
 
     public Realtor(Long id, String name, String email, String phone) {

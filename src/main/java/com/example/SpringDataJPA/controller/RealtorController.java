@@ -1,6 +1,5 @@
 package com.example.SpringDataJPA.controller;
 
-import com.example.SpringDataJPA.model.Property;
 import com.example.SpringDataJPA.model.Realtor;
 import com.example.SpringDataJPA.service.RealtorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,16 @@ public class RealtorController {
         return realtorService.getRealtor(id);
     }
     @PostMapping("/add")
-    public Realtor addPRealtor(@RequestBody Realtor realtor){
+    public Realtor addRealtor(@RequestBody Realtor realtor){
         return realtorService.createRealtor(realtor);
     }
+    @DeleteMapping("/delete/{id}")
+    public void deleteRealtorById(@PathVariable Long id){
+        realtorService.deleteRealtor(id);
+    }
+    @PutMapping ("/update/{id}")
+    public Realtor updateRealtorById(@PathVariable Long id, @RequestParam String email, @RequestParam String phone){
+        return realtorService.updateRealtor(id,email,phone);
+    }
+
 }

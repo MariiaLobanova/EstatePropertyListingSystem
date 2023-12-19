@@ -16,11 +16,14 @@ public class Property {
     private double area;
     private int bedrooms;
     private int bathrooms;
-    private String listingDate;
+    //private String listingDate;
 
     @ManyToOne
     @JoinColumn(name = "realtorId", referencedColumnName = "id")
     private Realtor realtor;
+
+    public Property() {
+    }
 
     public Realtor getRealtor() {
         return realtor;
@@ -30,8 +33,6 @@ public class Property {
         this.realtor = realtor;
     }
 
-    public Property() {
-    }
 
     public String getAddress() {
         return address;
@@ -81,14 +82,14 @@ public class Property {
         this.bathrooms = bathrooms;
     }
 
-    public String getListingDate() {
+    /*public String getListingDate() {
         return listingDate;
     }
 
     public void setListingDate(String listingDate) {
         this.listingDate = listingDate;
     }
-
+*/
     public void setId(Long id) {
         this.id = id;
     }

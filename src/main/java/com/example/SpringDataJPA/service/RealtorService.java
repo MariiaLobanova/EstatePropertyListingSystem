@@ -27,6 +27,23 @@ public class RealtorService {
     public Realtor createRealtor(Realtor realtor){
         return realtorRepository.save(realtor);
     }
+    public void deleteRealtor(Long id){
+        realtorRepository.deleteById(id);
+    }
+
+    public Realtor updateRealtor(Long id, String email, String phone){
+        Optional<Realtor> optionalRealtor = realtorRepository.findById(id);
+        if (optionalRealtor.isPresent()){
+            Realtor realtor = optionalRealtor.get();
+            realtor.setEmail(email);
+            realtor.setPhone(phone);
+            return realtorRepository.save(realtor);
+        } else{
+            System.out.println("Realtor with the id not found");
+            return null;
+        }
+
+    }
 
 
 

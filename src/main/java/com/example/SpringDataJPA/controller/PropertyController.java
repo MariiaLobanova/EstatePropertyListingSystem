@@ -25,9 +25,20 @@ public class PropertyController {
         return propertyService.getProperty(id);
     }
     @PostMapping("/add")
-    public Property addProperty(@RequestBody Property property){
-        return propertyService.createProperty(property);
+    public Property addProperty(@RequestBody Property property, @RequestParam Long realtorId){
+        return propertyService.createProperty(property, realtorId);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deletePropertyById(@PathVariable Long id){
+        propertyService.deleteProperty(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public Property updatePropertyById(@PathVariable Long id, @RequestParam double price){
+        return propertyService.updateProperty(id,price);
+    }
+
 
 
 }
